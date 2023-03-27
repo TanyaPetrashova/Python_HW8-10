@@ -11,7 +11,9 @@
 для изменения и удаления данных. 
 """
 
-def menu():                                 # Модуль меню
+# Модуль меню:
+ 
+def menu():                                
     print("\t Выберите операцию, которую хотите осуществить:")
     print()
     print("1 - Просмотреть все контакты")
@@ -35,7 +37,9 @@ def menu():                                 # Модуль меню
             option = 0
     return option
 
-def selection():            # Подпрограмма запуска модулей
+# Подпрограмма запуска модулей:
+
+def selection():            
     isFinish = False
     while not isFinish:
         select = menu()
@@ -59,7 +63,9 @@ def selection():            # Подпрограмма запуска модул
             isFinish = True
     print("Работа программы закончена. Спасибо")
 
-def read_data():                            # Модуль считывания данных из файла в список
+# Модуль считывания данных из файла в список:
+
+def read_data():                            
     with open('fio.txt', 'r', encoding='utf-8') as file:
         data = file.readlines()
         data = list(map(lambda record: record[:-1].split(';'), data))
@@ -152,7 +158,9 @@ def delete_record():
         print('Элемент не удалён')
     write_data(data)
 
-def write_data(data):                            # Модуль записи данных в файл
+# Модуль записи данных в файл:
+ 
+def write_data(data):                           
     with open('fio.txt', 'w', encoding='utf-8') as file:
         for i in range(len(data)):
             file.writelines(';'.join(data[i]))
